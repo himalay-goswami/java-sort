@@ -1,9 +1,11 @@
 # Library for sorting and processing huge datasets
 
-### The purpose of this library is to sort billions of rows of data. 
+The purpose of this library is to sort millions of rows of data from file, in-memory data source, or in real-time using streams. 
 
-Features: 
+## Features: 
 
-[x] Sort data from file, in-memory or disc.
+[x] Sort data from file, in-memory or stream.
 
-[x]   
+[1] Add library to POM.xml
+
+[2]  

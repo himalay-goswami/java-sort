@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class SorterImpl implements Sorter{
+public class ISorterImpl implements ISorter {
 
   @Override
   public <T> List<T> sort(List<T> data, Comparator<T> comparator) {

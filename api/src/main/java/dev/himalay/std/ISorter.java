@@ -6,9 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
-public interface Sorter {
+public interface ISorter {
 
-  // sort in-memory dataset
   <T> List<T> sort(List<T> data, Comparator<T> comparator);
 
   //sort large dataset from a file

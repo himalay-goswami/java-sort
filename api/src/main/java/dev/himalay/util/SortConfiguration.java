@@ -48,4 +48,8 @@ public class SortConfiguration {
     this.tempDirectory = tempDirectory;
     return this;
   }
+
+  public int getAvailableCores() {
+    return Runtime.getRuntime().availableProcessors();
+  }
 }
