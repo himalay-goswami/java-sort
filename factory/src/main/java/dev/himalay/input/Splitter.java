@@ -1,11 +1,10 @@
 package dev.himalay.input;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Path;
 import java.util.List;
 
-public interface InputReader<T> {
+public interface Splitter<T> {
 
   List<T> splitIntoChunks(T inputFilePath) throws IOException;
 

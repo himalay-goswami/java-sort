@@ -1,16 +1,16 @@
-package main.dev.himalay.util;
+package dev.himalay.util;
 
 import java.nio.file.Path;
 
 public class SortConfiguration {
 
-  private long maxMemoryUsage; // Maximum memory usage in bytes
-  private int chunkSize;       // Size of chunks for external sorting
-  private boolean isParallelExecuting;    // Enable/disable parallel processing
+  private long maxMemoryUsage;
+  private int chunkSize;
+  private boolean isParallelExecuting;
   private Path tempDirectory;
 
   private SortConfiguration(){
-    // intentionally left blank
+    //
   }
 
   public long maxMemoryUsage() {

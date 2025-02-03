@@ -1,7 +1,6 @@
 package dev.himalay.input.util;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,11 +10,13 @@ import java.util.List;
 public class SplitIntoChunk {
 
   private final long chunkSizeInBytes;
-  private final Path tempDir;
 
-  public SplitIntoChunk(long chunkSizeInBytes, Path tempDir) {
+  public SplitIntoChunk(long chunkSizeInBytes) {
     this.chunkSizeInBytes = chunkSizeInBytes;
-    this.tempDir = tempDir;
+  }
+
+  public static FileWriter fileWriterFactory(){
+    return new FileWriter();
   }
 
   public List<Path> splitFileIntoChunks(Path inputFilePath) throws IOException {
@@ -35,7 +36,7 @@ public class SplitIntoChunk {
         currentChunkSize +=line.getBytes().length;
 
         if(currentChunkSize >= chunkSizeInBytes) {
-          Path tempFile = writeChunkToTempFile(chunk);
+          Path tempFile = fileWriterFactory().writeChunkToTempFile(chunk);
           chunkFiles.add(tempFile);
 
           chunk.clear();
@@ -43,22 +44,10 @@ public class SplitIntoChunk {
         }
       }
       if(!chunk.isEmpty()){
-        Path tempFile = writeChunkToTempFile(chunk);
+        Path tempFile = fileWriterFactory().writeChunkToTempFile(chunk);
         chunkFiles.add(tempFile);
       }
     }
     return chunkFiles;
-  }
-
-  private Path writeChunkToTempFile(List<String> chunk) throws IOException {
-    Path tempFilePath = Files.createTempFile(tempDir, "chunk", ".tmp");
-
-    try(BufferedWriter writer = Files.newBufferedWriter(tempFilePath)) {
-      for(String line: chunk){
-        writer.write(line);
-        writer.newLine();
-      }
-    }
-    return tempFilePath;
   }
 }

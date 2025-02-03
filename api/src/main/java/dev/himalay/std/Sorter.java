@@ -1,6 +1,6 @@
-package main.dev.himalay.std;
+package dev.himalay.std;
 
-import main.dev.himalay.util.SortConfiguration;
+import dev.himalay.util.SortConfiguration;
 
 import java.util.Comparator;
 import java.util.List;
