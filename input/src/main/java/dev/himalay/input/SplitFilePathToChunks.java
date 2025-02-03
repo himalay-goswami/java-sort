@@ -10,13 +10,9 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-  This class manages input of data,
-  mainly responsible for reading data from file and splitting into chunks.
-*/
 @Getter
 @Setter
-public class InputReaderImpl implements InputReader{
+public class SplitFilePathToChunks implements InputReader<Path>{
 
   private long chunkSizeInBytes;
   private Path tempDirectory;
