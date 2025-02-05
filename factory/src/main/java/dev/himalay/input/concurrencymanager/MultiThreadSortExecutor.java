@@ -9,8 +9,7 @@ public class MultiThreadSortExecutor {
   private static final int CHUNK_SIZE_MB = 200;
   private static final int THREAD_MULTIPLIER = 2;
 
-  public static void sortExecute() throws Exception {
-    File inputFile = new File("largefile.txt");
+  public static File sortExecute(File inputFile) throws Exception {
     File outputFile = new File("sorted_largefile.txt");
 
     int availableCores = Runtime.getRuntime().availableProcessors();
@@ -20,6 +19,8 @@ public class MultiThreadSortExecutor {
     mergeSortedChunks(sortedChunks, outputFile);
 
     System.out.println("Sorting completed!");
+
+    return outputFile;
   }
 
   private static List<File> splitAndSortChunks(File inputFile, int numThreads) throws Exception {
